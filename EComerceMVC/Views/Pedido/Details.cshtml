@@ -1,0 +1,26 @@
+﻿@model EComerceMVC.Models.Pedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPagamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PedidoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

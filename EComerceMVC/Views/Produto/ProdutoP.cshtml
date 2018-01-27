@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EComerceMVC.Models.Produto>
+
+@using (Html.BeginForm())
+{
+    foreach (var item in Model)
+    {
+        <div class="cartao">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/200x100" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            @Html.ActionLink(@item.Nome, "Details", "Produto", new { id = item.ProdutoId }, null)
+                        </h4>
+
+                        <h5>Preço: R$ @item.Preco  </h5>
+                        <p class="card-text">@item.Descricao</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        <p class="button2">@Html.ActionLink("Adicionar", "AddToCart", "CarrinhoDeCompra", new { id = item.ProdutoId }, htmlAttributes: new { @class = "glyphicon glyphicon-shopping-cart" })</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

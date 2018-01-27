@@ -1,0 +1,59 @@
+﻿@model EComerceMVC.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="create">
+    <br>
+    <h2>&nbsp Detalhes</h2>
+
+    <hr />
+    &nbsp  @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-primary" })
+    <br>
+    <div class="img-new">&nbsp &nbsp &nbsp<a href="#"><img class="card-img-top" src="http://placehold.it/600x300" alt=""></a></div>
+        
+    <dl class="cartaodetalhes">
+     
+        <dd>
+              <h1>&nbsp &nbsp @Html.DisplayFor(model => model.Nome)</h1>
+        </dd>
+
+              <dd>
+              <h3>&nbsp &nbsp &nbsp Preço: @Html.DisplayFor(model => model.Preco)</h3>
+        </dd>
+
+             <dt>
+            &nbsp &nbsp &nbsp &nbsp &nbsp  @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        
+        &nbsp<dd class="button">&nbsp &nbsp &nbsp &nbsp &nbsp @Html.ActionLink("Adicionar", "AddToCart", "CarrinhoDeCompra", new { id = Model.ProdutoId }, htmlAttributes: new { @class = "glyphicon glyphicon-shopping-cart" })</dd>
+    </dl>
+    <table>
+    <tr>
+    <th>
+        
+           <h1> &nbsp @Html.DisplayNameFor(model => model.Descricao)</h1>
+       
+
+        <tt>
+            
+           <h3> &nbsp  &nbsp  &nbsp  @Html.DisplayFor(model => model.Descricao)</h3>
+        </tt>
+    </th>   
+    </tr>
+        </table>
+    <br>
+    <p>
+        &nbsp &nbsp
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Editar", "Edit", null, new { id = Model.ProdutoId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-primary" })
+        }
+       
+    </p>
+    <br>
+    </div>
+<div/>
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EComerceMVC.Models.Produto>
+<div class="create">
+@{
+    ViewBag.Title = "Index";
+}
+    <br>
+<h2>&nbsp Listagem de Produtos</h2>
+
+<p>
+    &nbsp @Html.ActionLink("Adicionar Produto", "Create",null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            &nbsp  @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            &nbsp  @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            &nbsp  @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            &nbsp @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            &nbsp  @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            &nbsp   @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",null, new { id=item.ProdutoId },new{ @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details",null, new { id=item.ProdutoId },new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Deletar", "Delete",null, new { id=item.ProdutoId },new { @class = "btn btn-danger" } )|
+           
+        </td>
+    </tr>
+}
+
+</table>
+</div>
